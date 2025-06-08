@@ -51,44 +51,44 @@ Este projeto é um sistema web desenvolvido para gerenciar a **Semana Tecnológi
 - Banco de Dados XXX
 - ZXing (geração e leitura de QRCodes)
 
-## 🗃️ Estrutura do Banco de Dados
+## 🗃️ Estrutura do Banco de Dados (Exemplo Simplificado)
 
-EventoGeral
-├── id
-├── nome
-├── ano
-├── descrição
+### 📌 EventoGeral
+- `id`
+- `nome`
+- `ano`
+- `descrição`
 
-Subevento
-├── id
-├── titulo
-├── tipo (palestra/oficina)
-├── conteúdo
-├── dataHoraInicio
-├── dataHoraFim
-├── local
-├── vagas
-├── ministrante
-├── eventoGeral_id (FK)
+### 📌 Subevento
+- `id`
+- `titulo`
+- `tipo` (palestra/oficina)
+- `conteúdo`
+- `dataHoraInicio`
+- `dataHoraFim`
+- `local`
+- `vagas`
+- `ministrante`
+- `eventoGeral_id` (FK)
 
-Usuario (Aluno)
-├── id
-├── nome
-├── email
-├── senha (criptografada)
-├── QRCode
+### 📌 Usuario (Aluno)
+- `id`
+- `nome`
+- `email`
+- `senha` (criptografada)
+- `QRCode`
 
-Inscricao
-├── id
-├── usuario_id (FK)
-├── subevento_id (FK)
-├── dataInscricao
-├── status (confirmado/presente)
+### 📌 Inscricao
+- `id`
+- `usuario_id` (FK)
+- `subevento_id` (FK)
+- `dataInscricao`
+- `status` (confirmado/presente)
 
-Administrador
-├── id
-├── nome
-├── email
-├── senha (criptografada)
+### 📌 Administrador
+- `id`
+- `nome`
+- `email`
+- `senha` (criptografada)
 
 Desenvolvido por Carolini Bassan Carlé, Djonathan Vinicius Briesch dos Santos, Maurício Carvalho Cogo e Rafael Müller Tischler.
