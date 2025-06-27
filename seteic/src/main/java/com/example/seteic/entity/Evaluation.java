@@ -2,35 +2,34 @@ package com.example.seteic.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
-@Table(name = "event")
+@Table(name = "evaluation")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Event {
+public class Evaluation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private double score;
 
-    private int year;
+    private String comment;
 
-    private String description;
+    @ManyToOne
+    @JoinColumn(name = "activity_id", nullable = false)
+    private Activity activity;
 
     private LocalDateTime createdAt;
+
     private LocalDateTime updatedAt;
 
     private boolean deleted;
-    private LocalDateTime deletedAt;
 
-    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Activity> activities;
+    private LocalDateTime deletedAt;
 }
