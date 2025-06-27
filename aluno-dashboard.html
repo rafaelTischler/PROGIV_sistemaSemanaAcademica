@@ -2,20 +2,199 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard do Aluno - SeTEIC</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #4e73df;
+      --primary-dark: #2e59d9;
+      --secondary: #858796;
+      --success: #1cc88a;
+      --info: #36b9cc;
+      --warning: #f6c23e;
+      --danger: #e74a3b;
+      --light: #f8f9fc;
+      --dark: #5a5c69;
+      --white: #ffffff;
+      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f5f7fa;
+      color: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    header {
+      background: var(--gradient);
+      color: var(--white);
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    
+    .titulo {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    
+    main.container {
+      flex: 1;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .qrcode-container {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      margin: 2rem 0;
+      text-align: center;
+      border-top: 4px solid var(--success);
+      max-width: 400px;
+      width: 100%;
+    }
+    
+    .qrcode-container p {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    
+    .qrcode-container img {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      border: 1px solid #eee;
+      padding: 10px;
+      background: var(--white);
+    }
+    
+    .dashboard-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 800px;
+      margin-top: 1rem;
+    }
+    
+    .dashboard-nav a {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      text-align: center;
+      text-decoration: none;
+      color: var(--primary-dark);
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      border-top: 4px solid var(--primary);
+    }
+    
+    .dashboard-nav a:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      color: var(--primary);
+    }
+    
+    .dashboard-nav a i {
+      font-size: 2rem;
+      color: var(--primary);
+    }
+    
+    .dashboard-nav a:nth-child(2) {
+      border-top-color: var(--info);
+    }
+    
+    .dashboard-nav a:nth-child(2) i {
+      color: var(--info);
+    }
+    
+    .dashboard-nav a:nth-child(3) {
+      border-top-color: var(--danger);
+    }
+    
+    .dashboard-nav a:nth-child(3) i {
+      color: var(--danger);
+    }
+    
+    footer {
+      background: var(--white);
+      color: var(--secondary);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.02);
+    }
+    
+    @media (max-width: 768px) {
+      .titulo {
+        font-size: 1.5rem;
+      }
+      
+      .dashboard-nav {
+        grid-template-columns: 1fr;
+      }
+      
+      .qrcode-container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header><h1 class="titulo">Bem-vindo, Aluno!</h1></header>
+  <header>
+    <h1 class="titulo">Bem-vindo, Aluno!</h1>
+  </header>
   <main class="container">
-    <p>Seu QRCode pessoal para validação de presença:</p>
-    <img src="qrcode-exemplo.png" alt="Seu QRCode" style="max-width:200px;">
-    <nav>
-      <a href="aluno-programacao.html">Ver Programação</a>
-      <a href="aluno-inscricoes.html">Minhas Inscrições</a>
-      <a href="index.html">Sair</a>
-    </nav>
+    <div class="qrcode-container">
+      <p>Seu QRCode pessoal para validação de presença</p>
+      <img src="qrcode-exemplo.png" alt="Seu QRCode">
+      <small style="color: var(--secondary); margin-top: 1rem; display: block;">
+        Mostre este código no check-in dos eventos
+      </small>
+    </div>
+    
+    <div class="dashboard-nav">
+      <a href="aluno-programacao.html">
+        <i class="fas fa-calendar-alt"></i>
+        Ver Programação Completa
+      </a>
+      <a href="aluno-inscricoes.html">
+        <i class="fas fa-clipboard-list"></i>
+        Minhas Inscrições
+      </a>
+      <a href="index.html">
+        <i class="fas fa-sign-out-alt"></i>
+        Sair do Sistema
+      </a>
+    </div>
   </main>
-  <footer><p>&copy; 2025 Diretório Acadêmico Turing - ADS - IFFar - SVS</p></footer>
+  <footer>
+    <p>&copy; 2025 Diretório Acadêmico Turing - ADS - IFFar - SVS | Todos os direitos reservados</p>
+  </footer>
 </body>
 </html>
