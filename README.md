@@ -18,7 +18,8 @@ Este projeto é um sistema web desenvolvido para gerenciar a Semana Tecnológica
 - Java 17+
 - Spring Boot
 - PostgreSQL
-- Lombok
+- DBeaver
+- Visual Studio Code
 
 ## Dependências Maven
 
