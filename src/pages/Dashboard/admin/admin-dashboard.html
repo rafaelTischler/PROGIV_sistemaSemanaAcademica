@@ -1,0 +1,428 @@
+  <!DOCTYPE html>
+  <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard do Administrador - SeTEIC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      :root {
+        --primary: #4e73df;
+        --primary-dark: #2e59d9;
+        --secondary: #858796;
+        --success: #1cc88a;
+        --info: #36b9cc;
+        --warning: #f6c23e;
+        --danger: #e74a3b;
+        --light: #f8f9fc;
+        --dark: #5a5c69;
+        --white: #ffffff;
+        --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      
+      body {
+        background-color: #f5f7fa;
+        color: var(--dark);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      header {
+        background: var(--gradient);
+        color: var(--white);
+        padding: 1.5rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .titulo {
+        font-size: 1.8rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+      
+      .user-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-weight: bold;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      
+      main.container {
+        display: flex;
+        flex: 1;
+      }
+      
+      nav {
+        width: 250px;
+        background: var(--white);
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+        padding: 1.5rem 0;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+      }
+      
+      nav a {
+        color: var(--secondary);
+        text-decoration: none;
+        padding: 0.8rem 1.5rem;
+        margin: 0.2rem 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+        border-left: 3px solid transparent;
+      }
+      
+      nav a:hover {
+        color: var(--primary);
+        background-color: rgba(78, 115, 223, 0.1);
+        border-left: 3px solid var(--primary);
+      }
+      
+      nav a i {
+        width: 20px;
+        text-align: center;
+      }
+      
+      .content {
+        flex: 1;
+        padding: 2rem;
+        background-color: var(--light);
+      }
+      
+      .welcome-card {
+        background: var(--white);
+        border-radius: 10px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%), 
+                    url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center;
+        background-size: cover;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .welcome-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(78, 115, 223, 0.1);
+        z-index: 0;
+      }
+      
+      .welcome-card h2 {
+        font-size: 1.8rem;
+        color: var(--primary-dark);
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      
+      .welcome-card p {
+        color: var(--dark);
+        margin-bottom: 1rem;
+        position: relative;
+      }
+      
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+      
+      .stat-card {
+        background: var(--white);
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        border-left: 4px solid var(--primary);
+        transition: transform 0.3s ease;
+      }
+      
+      .stat-card:hover {
+        transform: translateY(-5px);
+      }
+      
+      .stat-card.primary {
+        border-left-color: var(--primary);
+      }
+      
+      .stat-card.success {
+        border-left-color: var(--success);
+      }
+      
+      .stat-card.warning {
+        border-left-color: var(--warning);
+      }
+      
+      .stat-card.danger {
+        border-left-color: var(--danger);
+      }
+      
+      .stat-card .stat-title {
+        color: var(--secondary);
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      
+      .stat-card .stat-value {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+      
+      .stat-card .stat-icon {
+        align-self: flex-end;
+        font-size: 2rem;
+        opacity: 0.3;
+      }
+      
+      .stat-card.primary .stat-icon {
+        color: var(--primary);
+      }
+      
+      .stat-card.success .stat-icon {
+        color: var(--success);
+      }
+      
+      .stat-card.warning .stat-icon {
+        color: var(--warning);
+      }
+      
+      .stat-card.danger .stat-icon {
+        color: var(--danger);
+      }
+      
+      .recent-activity {
+        background: var(--white);
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+      
+      .recent-activity h3 {
+        color: var(--primary-dark);
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #eee;
+      }
+      
+      .activity-item {
+        display: flex;
+        gap: 1rem;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid #f5f5f5;
+      }
+      
+      .activity-item:last-child {
+        border-bottom: none;
+      }
+      
+      .activity-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(78, 115, 223, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        flex-shrink: 0;
+      }
+      
+      .activity-content {
+        flex: 1;
+      }
+      
+      .activity-time {
+        font-size: 0.8rem;
+        color: var(--secondary);
+        margin-top: 0.3rem;
+      }
+      
+      footer {
+        background: var(--white);
+        color: var(--secondary);
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.02);
+      }
+      
+      @media (max-width: 768px) {
+        main.container {
+          flex-direction: column;
+        }
+        
+        nav {
+          width: 100%;
+          flex-direction: row;
+          overflow-x: auto;
+          padding: 0.5rem;
+        }
+        
+        nav a {
+          flex-direction: column;
+          padding: 0.5rem;
+          font-size: 0.8rem;
+          text-align: center;
+          min-width: 80px;
+        }
+        
+        nav a i {
+          margin-bottom: 0.3rem;
+        }
+        
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 class="titulo">Painel Administrativo - SeTEIC</h1>
+      <div class="user-info">
+        <div class="user-avatar">AD</div>
+        <span>Admin</span>
+      </div>
+    </header>
+    <main class="container">
+      <nav>
+        <a href="admin-eventos.html">
+          <i class="fas fa-calendar-alt"></i>
+          <span>Edições da SeTEIC</span>
+        </a>
+        <a href="admin-subeventos.html">
+          <i class="fas fa-list-ul"></i>
+          <span>Subeventos</span>
+        </a>
+        <a href="admin-inscricoes.html">
+          <i class="fas fa-users"></i>
+          <span>Inscrições</span>
+        </a>
+        <a href="admin-qrcode.html">
+          <i class="fas fa-qrcode"></i>
+          <span>Validação de Presença</span>
+        </a>
+        <a href="index.html">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Sair</span>
+        </a>
+      </nav>
+      <div class="content">
+        <div class="welcome-card">
+          <h2>Bem-vindo, Administrador!</h2>
+          <p>Gerencie todas as edições da SeTEIC, subeventos, inscrições e validação de presença em um só lugar.</p>
+        </div>
+        
+        <div class="stats-grid">
+          <div class="stat-card primary">
+            <div class="stat-title">Eventos Ativos</div>
+            <div class="stat-value">3</div>
+            <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+          </div>
+          
+          <div class="stat-card success">
+            <div class="stat-title">Inscrições Hoje</div>
+            <div class="stat-value">24</div>
+            <div class="stat-icon"><i class="fas fa-user-plus"></i></div>
+          </div>
+          
+          <div class="stat-card warning">
+            <div class="stat-title">Subeventos</div>
+            <div class="stat-value">15</div>
+            <div class="stat-icon"><i class="fas fa-list-ol"></i></div>
+          </div>
+          
+          <div class="stat-card danger">
+            <div class="stat-title">Presenças Validadas</div>
+            <div class="stat-value">187</div>
+            <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+          </div>
+        </div>
+        
+        <div class="recent-activity">
+          <h3><i class="fas fa-history"></i> Atividades Recentes</h3>
+          
+          <div class="activity-item">
+            <div class="activity-icon">
+              <i class="fas fa-user-plus"></i>
+            </div>
+            <div class="activity-content">
+              <div>Novo usuário cadastrado: João Silva</div>
+              <div class="activity-time">10 minutos atrás</div>
+            </div>
+          </div>
+          
+          <div class="activity-item">
+            <div class="activity-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="activity-content">
+              <div>Presença validada para "Workshop de Python Avançado"</div>
+              <div class="activity-time">25 minutos atrás</div>
+            </div>
+          </div>
+          
+          <div class="activity-item">
+            <div class="activity-icon">
+              <i class="fas fa-calendar-plus"></i>
+            </div>
+            <div class="activity-content">
+              <div>Novo subevento criado: "Palestra sobre IA Generativa"</div>
+              <div class="activity-time">1 hora atrás</div>
+            </div>
+          </div>
+          
+          <div class="activity-item">
+            <div class="activity-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="activity-content">
+              <div>E-mail enviado para 15 participantes</div>
+              <div class="activity-time">2 horas atrás</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2025 Diretório Acadêmico Turing - ADS - IFFar - SVS | Todos os direitos reservados</p>
+    </footer>
+  </body>
+  </html>

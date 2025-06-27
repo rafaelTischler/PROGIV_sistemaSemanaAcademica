@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minhas Inscrições - SeTEIC</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #4e73df;
+      --primary-dark: #2e59d9;
+      --secondary: #858796;
+      --success: #1cc88a;
+      --info: #36b9cc;
+      --warning: #f6c23e;
+      --danger: #e74a3b;
+      --light: #f8f9fc;
+      --dark: #5a5c69;
+      --white: #ffffff;
+      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f5f7fa;
+      color: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    header {
+      background: var(--gradient);
+      color: var(--white);
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    
+    .titulo {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    
+    main.container {
+      flex: 1;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    
+    .inscricoes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .inscricao-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border-top: 4px solid var(--primary);
+      position: relative;
+    }
+    
+    .inscricao-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .inscricao-card.confirmado {
+      border-top-color: var(--success);
+    }
+    
+    .inscricao-card.presente {
+      border-top-color: var(--info);
+    }
+    
+    .inscricao-card.cancelado {
+      border-top-color: var(--danger);
+    }
+    
+    .inscricao-card h2 {
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    
+    .inscricao-card p {
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    
+    .inscricao-card strong {
+      color: var(--dark);
+      font-weight: 600;
+    }
+    
+    .inscricao-card .inscricao-status {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      background-color: rgba(78, 115, 223, 0.1);
+      color: var(--primary);
+    }
+    
+    .inscricao-card.confirmado .inscricao-status {
+      background-color: rgba(28, 200, 138, 0.1);
+      color: var(--success);
+    }
+    
+    .inscricao-card.presente .inscricao-status {
+      background-color: rgba(54, 185, 204, 0.1);
+      color: var(--info);
+    }
+    
+    .inscricao-card.cancelado .inscricao-status {
+      background-color: rgba(231, 74, 59, 0.1);
+      color: var(--danger);
+    }
+    
+    .inscricao-card button {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 1rem;
+      background: var(--danger);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .inscricao-card button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(231, 74, 59, 0.3);
+    }
+    
+    .inscricao-card button i {
+      font-size: 0.9rem;
+    }
+    
+    footer {
+      background: var(--white);
+      color: var(--secondary);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.02);
+    }
+    
+    @media (max-width: 768px) {
+      .titulo {
+        font-size: 1.5rem;
+      }
+      
+      .inscricoes-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="titulo">Minhas Inscrições - SeTEIC</h1>
+  </header>
+  <main class="container">
+    <div class="inscricoes-grid">
+      <section class="inscricao-card confirmado">
+        <span class="inscricao-status">Confirmado</span>
+        <h2>Oficina: Introdução ao Git e Controle de Versão</h2>
+        <p><strong><i class="fas fa-chalkboard-teacher"></i> Ministrante:</strong> Prof. João Silva</p>
+        <p><strong><i class="fas fa-calendar-alt"></i> Data:</strong> 12/06/2025 - 14:00 às 17:00</p>
+        <p><strong><i class="fas fa-map-marker-alt"></i> Local:</strong> Laboratório 2 - Bloco B</p>
+        <p><strong><i class="fas fa-qrcode"></i> Código de Inscrição:</strong> SETEIC-GIT-4582</p>
+        <button>
+          <i class="fas fa-times-circle"></i> Cancelar Inscrição
+        </button>
+      </section>
+
+      <section class="inscricao-card presente">
+        <span class="inscricao-status">Presente</span>
+        <h2>Palestra: Inteligência Artificial no Brasil: Desafios e Oportunidades</h2>
+        <p><strong><i class="fas fa-chalkboard-teacher"></i> Ministrante:</strong> Dra. Ana Oliveira</p>
+        <p><strong><i class="fas fa-calendar-alt"></i> Data:</strong> 13/06/2025 - 10:00 às 12:00</p>
+        <p><strong><i class="fas fa-map-marker-alt"></i> Local:</strong> Auditório Central</p>
+        <p><strong><i class="fas fa-qrcode"></i> Código de Inscrição:</strong> SETEIC-IA-7854</p>
+        <button disabled style="background-color: var(--secondary); cursor: not-allowed;">
+          <i class="fas fa-check-circle"></i> Presença Confirmada
+        </button>
+      </section>
+
+      <section class="inscricao-card cancelado">
+        <span class="inscricao-status">Cancelado</span>
+        <h2>Oficina: Desenvolvimento Web com React</h2>
+        <p><strong><i class="fas fa-chalkboard-teacher"></i> Ministrante:</strong> Prof. Carlos Mendes</p>
+        <p><strong><i class="fas fa-calendar-alt"></i> Data:</strong> 14/06/2025 - 09:00 às 12:00</p>
+        <p><strong><i class="fas fa-map-marker-alt"></i> Local:</strong> Laboratório 3 - Bloco A</p>
+        <p><strong><i class="fas fa-qrcode"></i> Código de Inscrição:</strong> SETEIC-REACT-3265</p>
+        <button disabled style="background-color: var(--secondary); cursor: not-allowed;">
+          <i class="fas fa-ban"></i> Inscrição Cancelada
+        </button>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 Diretório Acadêmico Turing - ADS - IFFar - SVS | Todos os direitos reservados</p>
+  </footer>
+</body>
+</html>

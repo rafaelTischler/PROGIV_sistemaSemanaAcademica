@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Evento Geral - SeTEIC</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #4e73df;
+      --primary-dark: #2e59d9;
+      --secondary: #858796;
+      --success: #1cc88a;
+      --light: #f8f9fc;
+      --dark: #5a5c69;
+      --white: #ffffff;
+      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f5f7fa;
+      color: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    header {
+      background: var(--gradient);
+      color: var(--white);
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .titulo {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    
+    .back-button {
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.9rem;
+      transition: opacity 0.3s;
+    }
+    
+    .back-button:hover {
+      opacity: 0.9;
+    }
+    
+    main.container {
+      flex: 1;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    
+    .form-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+    }
+    
+    .form-header {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .form-header h2 {
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .form-header h2 i {
+      color: var(--primary);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--dark);
+    }
+    
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    input[type="time"],
+    input[type="email"],
+    input[type="password"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: all 0.3s;
+      background-color: var(--light);
+    }
+    
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.2);
+    }
+    
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    button[type="submit"] {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 10px rgba(78, 115, 223, 0.3);
+    }
+    
+    button[type="submit"]:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(78, 115, 223, 0.4);
+    }
+    
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 2rem;
+    }
+    
+    footer {
+      background: var(--white);
+      color: var(--secondary);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.02);
+    }
+    
+    @media (max-width: 768px) {
+      main.container {
+        padding: 1rem;
+      }
+      
+      .form-card {
+        padding: 1.5rem;
+      }
+      
+      header {
+        padding: 1rem;
+      }
+      
+      .titulo {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="titulo">Edições da SeTEIC</h1>
+    <a href="admin-eventos.html" class="back-button">
+      <i class="fas fa-arrow-left"></i>
+      Voltar
+    </a>
+  </header>
+  <main class="container">
+    <div class="form-card">
+      <div class="form-header">
+        <h2><i class="fas fa-calendar-plus"></i> Cadastro de Nova Edição</h2>
+      </div>
+      
+      <form>
+        <div class="form-group">
+          <label for="nome">Nome da edição</label>
+          <input type="text" id="nome" required placeholder="Ex: SeTEIC 2025">
+        </div>
+        
+        <div class="form-group">
+          <label for="ano">Ano</label>
+          <input type="number" id="ano" required min="2000" max="2100" placeholder="2025">
+        </div>
+        
+        <div class="form-group">
+          <label for="data-inicio">Data de Início</label>
+          <input type="date" id="data-inicio" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="data-fim">Data de Término</label>
+          <input type="date" id="data-fim" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="descricao">Descrição do Evento</label>
+          <textarea id="descricao" rows="4" placeholder="Descreva os objetivos e características desta edição..."></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="local">Local do Evento</label>
+          <input type="text" id="local" placeholder="Ex: IFFar - Campus Santa Vitória do Palmar">
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit">
+            <i class="fas fa-save"></i>
+            Salvar Edição
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 Diretório Acadêmico Turing - ADS - IFFar - SVS | Todos os direitos reservados</p>
+  </footer>
+</body>
+</html>
