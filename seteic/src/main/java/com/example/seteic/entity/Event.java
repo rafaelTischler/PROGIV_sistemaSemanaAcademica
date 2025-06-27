@@ -1,8 +1,9 @@
 package com.example.seteic.entity;
 
-import jakarta.persistence.*;
+import com.example.seteic.dto.request.EventRequestDTO;
 import lombok.*;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -20,9 +21,7 @@ public class Event {
     private Long id;
 
     private String name;
-
     private int year;
-
     private String description;
 
     private LocalDateTime createdAt;
@@ -33,4 +32,12 @@ public class Event {
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Activity> activities;
+
+    public EventRequestDTO toDTO() {
+        return EventRequestDTO.builder()
+                .name(this.name)
+                .year(this.year)
+                .description(this.description)
+                .build();
+    }
 }
