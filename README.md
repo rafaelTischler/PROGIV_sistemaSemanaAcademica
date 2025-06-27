@@ -110,6 +110,18 @@ Este projeto é um sistema web desenvolvido para gerenciar a Semana Tecnológica
 - created_at: timestamp  
 - updated_at: timestamp  
 - deleted: boolean  
+- deleted_at: timestamp
+- 
+### Avaliação
+
+- id: serial  
+- nota: double  
+- comentário: string  
+- atividadeId: FK -> Atividade.id  
+- usuarioId: FK -> Usuario.id  
+- created_at: timestamp  
+- updated_at: timestamp  
+- deleted: boolean  
 - deleted_at: timestamp  
 
 ---
