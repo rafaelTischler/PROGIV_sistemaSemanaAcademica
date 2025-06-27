@@ -2,46 +2,293 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro de Subeventos - SeTEIC</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #4e73df;
+      --primary-dark: #2e59d9;
+      --secondary: #858796;
+      --success: #1cc88a;
+      --info: #36b9cc;
+      --warning: #f6c23e;
+      --danger: #e74a3b;
+      --light: #f8f9fc;
+      --dark: #5a5c69;
+      --white: #ffffff;
+      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f5f7fa;
+      color: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    header {
+      background: var(--gradient);
+      color: var(--white);
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .titulo {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    main.container {
+      display: flex;
+      flex: 1;
+    }
+    
+    nav {
+      width: 250px;
+      background: var(--white);
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+      padding: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+    
+    nav a {
+      color: var(--secondary);
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      margin: 0.2rem 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+    
+    nav a:hover {
+      color: var(--primary);
+      background-color: rgba(78, 115, 223, 0.1);
+      border-left: 3px solid var(--primary);
+    }
+    
+    nav a i {
+      width: 20px;
+      text-align: center;
+    }
+    
+    .content {
+      flex: 1;
+      padding: 2rem;
+      background-color: var(--light);
+    }
+    
+    form {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+      font-weight: 500;
+    }
+    
+    input[type="text"],
+    input[type="number"],
+    input[type="datetime-local"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    input[type="datetime-local"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.2);
+      outline: none;
+    }
+    
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    
+    button[type="submit"] {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: block;
+      width: 100%;
+    }
+    
+    button[type="submit"]:hover {
+      background: var(--primary-dark);
+    }
+    
+    footer {
+      background: var(--white);
+      color: var(--secondary);
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.02);
+    }
+    
+    @media (max-width: 768px) {
+      main.container {
+        flex-direction: column;
+      }
+      
+      nav {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 0.5rem;
+      }
+      
+      nav a {
+        flex-direction: column;
+        padding: 0.5rem;
+        font-size: 0.8rem;
+        text-align: center;
+        min-width: 80px;
+      }
+      
+      nav a i {
+        margin-bottom: 0.3rem;
+      }
+      
+      form {
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header><h1 class="titulo">Subeventos</h1></header>
+  <header>
+    <h1 class="titulo">Painel Administrativo - SeTEIC</h1>
+    <div class="user-info">
+      <div class="user-avatar">AD</div>
+      <span>Admin</span>
+    </div>
+  </header>
   <main class="container">
-    <form>
-      <label for="titulo">Título:</label>
-      <input type="text" id="titulo" required>
+    <nav>
+      <a href="admin-eventos.html">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Edições da SeTEIC</span>
+      </a>
+      <a href="admin-subeventos.html">
+        <i class="fas fa-list-ul"></i>
+        <span>Subeventos</span>
+      </a>
+      <a href="admin-inscricoes.html">
+        <i class="fas fa-users"></i>
+        <span>Inscrições</span>
+      </a>
+      <a href="admin-qrcode.html">
+        <i class="fas fa-qrcode"></i>
+        <span>Validação de Presença</span>
+      </a>
+      <a href="index.html">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Sair</span>
+      </a>
+    </nav>
+    <div class="content">
+      <form>
+        <h2 style="color: var(--primary-dark); margin-bottom: 1.5rem;">Cadastro de Subeventos</h2>
+        
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" required>
 
-      <label for="tipo">Tipo:</label>
-      <select id="tipo">
-        <option value="palestra">Palestra</option>
-        <option value="oficina">Oficina</option>
-      </select>
+        <label for="tipo">Tipo:</label>
+        <select id="tipo">
+          <option value="palestra">Palestra</option>
+          <option value="oficina">Oficina</option>
+        </select>
 
-      <label for="conteudo">Conteúdo:</label>
-      <textarea id="conteudo" rows="4"></textarea>
+        <label for="conteudo">Conteúdo:</label>
+        <textarea id="conteudo" rows="4"></textarea>
 
-      <label for="ministrante">Ministrante(s):</label>
-      <input type="text" id="ministrante">
+        <label for="ministrante">Ministrante(s):</label>
+        <input type="text" id="ministrante">
 
-      <label for="inicio">Data/Hora Início:</label>
-      <input type="datetime-local" id="inicio">
+        <label for="inicio">Data/Hora Início:</label>
+        <input type="datetime-local" id="inicio">
 
-      <label for="fim">Data/Hora Fim:</label>
-      <input type="datetime-local" id="fim">
+        <label for="fim">Data/Hora Fim:</label>
+        <input type="datetime-local" id="fim">
 
-      <label for="local">Local:</label>
-      <input type="text" id="local">
+        <label for="local">Local:</label>
+        <input type="text" id="local">
 
-      <label for="vagas">Vagas:</label>
-      <input type="number" id="vagas">
+        <label for="vagas">Vagas:</label>
+        <input type="number" id="vagas">
 
-      <label for="evento">Evento Geral:</label>
-      <input type="text" id="evento" placeholder="17ª SeTEIC">
+        <label for="evento">Evento Geral:</label>
+        <input type="text" id="evento" placeholder="17ª SeTEIC">
 
-      <button type="submit">Salvar</button>
-    </form>
+        <button type="submit">Salvar</button>
+      </form>
+    </div>
   </main>
-  <footer><p>&copy; 2025 Diretório Acadêmico Turing - ADS - IFFar - SVS</p></footer>
+  <footer>
+    <p>&copy; 2025 Diretório Acadêmico Turing - ADS - IFFar - SVS | Todos os direitos reservados</p>
+  </footer>
 </body>
 </html>
