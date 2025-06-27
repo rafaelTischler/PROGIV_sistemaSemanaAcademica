@@ -1,0 +1,80 @@
+2025-06-27 15:01:40.357 -03 [10508] LOG:  iniciando PostgreSQL 17.5 on x86_64-windows, compiled by msvc-19.44.35209, 64-bit
+2025-06-27 15:01:40.361 -03 [10508] LOG:  escutando no endereço IPv6 "::1", porta 5432
+2025-06-27 15:01:40.361 -03 [10508] LOG:  escutando no endereço IPv4 "127.0.0.1", porta 5432
+2025-06-27 15:01:40.479 -03 [1624] LOG:  sistema de banco de dados foi desligado em 2025-06-27 15:00:35 -03
+2025-06-27 15:01:40.573 -03 [10508] LOG:  sistema de banco de dados está pronto para aceitar conexões
+2025-06-27 15:01:55.319 -03 [8520] FATAL:  role "postgres" não existe
+2025-06-27 15:02:18.275 -03 [10956] FATAL:  banco de dados "2023001236" não existe
+2025-06-27 15:02:26.479 -03 [6168] FATAL:  role "mauriciocogo" não existe
+2025-06-27 15:02:29.338 -03 [4704] FATAL:  role "mauricio" não existe
+2025-06-27 15:02:36.784 -03 [8960] FATAL:  banco de dados "2023001236" não existe
+2025-06-27 15:02:38.718 -03 [10476] FATAL:  banco de dados "2023001236" não existe
+2025-06-27 15:03:14.014 -03 [10064] FATAL:  role "postgres" não existe
+2025-06-27 15:03:59.297 -03 [10508] LOG:  pedido de desligamento rápido foi recebido
+2025-06-27 15:03:59.298 -03 [9296] ERRO:  cancelando o comando devido a um pedido do usuário
+2025-06-27 15:03:59.335 -03 [10508] LOG:  interrompendo quaisquer transações ativas
+2025-06-27 15:03:59.336 -03 [10508] LOG:  processo trabalhador em segundo plano "logical replication launcher" (PID 9296) terminou com código de retorno 1
+2025-06-27 15:03:59.361 -03 [10740] LOG:  desligando
+2025-06-27 15:03:59.379 -03 [10740] LOG:  checkpoint starting: shutdown immediate
+2025-06-27 15:03:59.844 -03 [10740] LOG:  checkpoint complete: wrote 43 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.009 s, sync=0.366 s, total=0.483 s; sync files=15, longest=0.044 s, average=0.025 s; distance=208 kB, estimate=208 kB; lsn=0/159AF08, redo lsn=0/159AF08
+2025-06-27 15:03:59.865 -03 [10508] LOG:  sistema de banco de dados está desligado
+2025-06-27 15:04:26.037 -03 [5656] LOG:  iniciando PostgreSQL 17.5 on x86_64-windows, compiled by msvc-19.44.35209, 64-bit
+2025-06-27 15:04:26.044 -03 [5656] LOG:  escutando no endereço IPv6 "::1", porta 5432
+2025-06-27 15:04:26.045 -03 [5656] LOG:  escutando no endereço IPv4 "127.0.0.1", porta 5432
+2025-06-27 15:04:26.234 -03 [10948] LOG:  sistema de banco de dados foi desligado em 2025-06-27 15:03:59 -03
+2025-06-27 15:04:26.323 -03 [5656] LOG:  sistema de banco de dados está pronto para aceitar conexões
+2025-06-27 15:04:44.172 -03 [5656] LOG:  pedido de desligamento rápido foi recebido
+2025-06-27 15:04:44.176 -03 [1524] ERRO:  cancelando o comando devido a um pedido do usuário
+2025-06-27 15:04:44.207 -03 [5656] LOG:  interrompendo quaisquer transações ativas
+2025-06-27 15:04:44.208 -03 [5656] LOG:  processo trabalhador em segundo plano "logical replication launcher" (PID 1524) terminou com código de retorno 1
+2025-06-27 15:04:44.223 -03 [1688] LOG:  desligando
+2025-06-27 15:04:44.245 -03 [1688] LOG:  checkpoint starting: shutdown immediate
+2025-06-27 15:04:44.404 -03 [1688] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.006 s, sync=0.059 s, total=0.181 s; sync files=3, longest=0.024 s, average=0.020 s; distance=0 kB, estimate=0 kB; lsn=0/159AFB8, redo lsn=0/159AFB8
+2025-06-27 15:04:44.441 -03 [5656] LOG:  sistema de banco de dados está desligado
+2025-06-27 15:06:12.271 -03 [9632] LOG:  iniciando PostgreSQL 17.5 on x86_64-windows, compiled by msvc-19.44.35209, 64-bit
+2025-06-27 15:06:12.274 -03 [9632] LOG:  escutando no endereço IPv6 "::1", porta 5432
+2025-06-27 15:06:12.274 -03 [9632] LOG:  escutando no endereço IPv4 "127.0.0.1", porta 5432
+2025-06-27 15:06:12.390 -03 [1844] LOG:  sistema de banco de dados foi desligado em 2025-06-27 15:04:44 -03
+2025-06-27 15:06:12.452 -03 [9632] LOG:  sistema de banco de dados está pronto para aceitar conexões
+2025-06-27 15:06:15.845 -03 [9880] FATAL:  banco de dados "mauricio" não existe
+2025-06-27 15:06:31.079 -03 [9632] LOG:  pedido de desligamento rápido foi recebido
+2025-06-27 15:06:31.080 -03 [8020] ERRO:  cancelando o comando devido a um pedido do usuário
+2025-06-27 15:06:31.111 -03 [9632] LOG:  interrompendo quaisquer transações ativas
+2025-06-27 15:06:31.111 -03 [9632] LOG:  processo trabalhador em segundo plano "logical replication launcher" (PID 8020) terminou com código de retorno 1
+2025-06-27 15:06:31.140 -03 [10884] LOG:  desligando
+2025-06-27 15:06:31.161 -03 [10884] LOG:  checkpoint starting: shutdown immediate
+2025-06-27 15:06:33.195 -03 [8900] FATAL:  o sistema de banco de dados está desligando
+2025-06-27 15:06:39.439 -03 [10884] LOG:  checkpoint complete: wrote 974 buffers (5.9%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.142 s, sync=8.030 s, total=8.299 s; sync files=304, longest=0.117 s, average=0.027 s; distance=4569 kB, estimate=4569 kB; lsn=0/1A11530, redo lsn=0/1A11530
+2025-06-27 15:06:39.475 -03 [9632] LOG:  sistema de banco de dados está desligado
+2025-06-27 15:07:13.953 -03 [10328] LOG:  iniciando PostgreSQL 17.5 on x86_64-windows, compiled by msvc-19.44.35209, 64-bit
+2025-06-27 15:07:13.957 -03 [10328] LOG:  escutando no endereço IPv6 "::1", porta 5432
+2025-06-27 15:07:13.957 -03 [10328] LOG:  escutando no endereço IPv4 "127.0.0.1", porta 5432
+2025-06-27 15:07:14.085 -03 [4536] LOG:  sistema de banco de dados foi desligado em 2025-06-27 15:06:39 -03
+2025-06-27 15:07:14.154 -03 [10328] LOG:  sistema de banco de dados está pronto para aceitar conexões
+2025-06-27 15:07:30.358 -03 [10328] LOG:  pedido de desligamento rápido foi recebido
+2025-06-27 15:07:30.360 -03 [10520] ERRO:  cancelando o comando devido a um pedido do usuário
+2025-06-27 15:07:30.401 -03 [10328] LOG:  interrompendo quaisquer transações ativas
+2025-06-27 15:07:30.402 -03 [10328] LOG:  processo trabalhador em segundo plano "logical replication launcher" (PID 10520) terminou com código de retorno 1
+2025-06-27 15:07:30.429 -03 [7268] LOG:  desligando
+2025-06-27 15:07:30.452 -03 [7268] LOG:  checkpoint starting: shutdown immediate
+2025-06-27 15:07:30.766 -03 [7268] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.006 s, sync=0.128 s, total=0.338 s; sync files=3, longest=0.063 s, average=0.043 s; distance=0 kB, estimate=0 kB; lsn=0/1A115E0, redo lsn=0/1A115E0
+2025-06-27 15:07:30.805 -03 [10328] LOG:  sistema de banco de dados está desligado
+2025-06-27 15:07:46.500 -03 [10412] LOG:  iniciando PostgreSQL 17.5 on x86_64-windows, compiled by msvc-19.44.35209, 64-bit
+2025-06-27 15:07:46.504 -03 [10412] LOG:  escutando no endereço IPv6 "::1", porta 5432
+2025-06-27 15:07:46.504 -03 [10412] LOG:  escutando no endereço IPv4 "127.0.0.1", porta 5432
+2025-06-27 15:07:46.631 -03 [10036] LOG:  sistema de banco de dados foi desligado em 2025-06-27 15:07:30 -03
+2025-06-27 15:07:46.702 -03 [10412] LOG:  sistema de banco de dados está pronto para aceitar conexões
+2025-06-27 15:07:49.996 -03 [10412] LOG:  processo trabalhador em segundo plano "logical replication launcher" (PID 3208) foi terminado pela exceção 0xC000013A
+2025-06-27 15:07:49.996 -03 [10412] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
+2025-06-27 15:07:49.996 -03 [10412] LOG:  terminando quaisquer outros processos servidor ativos
+2025-06-27 15:07:50.007 -03 [10412] LOG:  pedido de desligamento rápido foi recebido
+^C2025-06-27 15:08:09.167 -03 [6232] LOG:  iniciando PostgreSQL 17.5 on x86_64-windows, compiled by msvc-19.44.35209, 64-bit
+2025-06-27 15:08:09.170 -03 [6232] LOG:  escutando no endereço IPv6 "::1", porta 5432
+2025-06-27 15:08:09.171 -03 [6232] LOG:  escutando no endereço IPv4 "127.0.0.1", porta 5432
+2025-06-27 15:08:09.308 -03 [7028] LOG:  sistema de banco de dados foi interrompido; última execução em 2025-06-27 15:07:46 -03
+2025-06-27 15:08:09.757 -03 [7028] LOG:  sistema de banco de dados não foi desligado corretamente; recuperação automática está em andamento
+2025-06-27 15:08:09.784 -03 [7028] LOG:  comprimento de registro inválido em 0/1A11658: esperado pelo menos 24, obtido 0
+2025-06-27 15:08:09.784 -03 [7028] LOG:  redo não é requerido
+2025-06-27 15:08:09.810 -03 [10304] LOG:  checkpoint starting: end-of-recovery immediate wait
+2025-06-27 15:08:09.966 -03 [10304] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.040 s, total=0.180 s; sync files=2, longest=0.023 s, average=0.020 s; distance=0 kB, estimate=0 kB; lsn=0/1A11658, redo lsn=0/1A11658
+2025-06-27 15:08:10.026 -03 [6232] LOG:  sistema de banco de dados está pronto para aceitar conexões
